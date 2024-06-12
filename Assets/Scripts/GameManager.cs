@@ -26,4 +26,15 @@ public class GameManager : MonoBehaviour
     {
         playerName = name;
     }
+
+    public void SaveHighScore(int score)
+    {
+        int highScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        if (score > highScore)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            PlayerPrefs.SetString("PlayerScore", playerName);
+        }
+    }
 }
